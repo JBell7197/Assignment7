@@ -9,8 +9,6 @@ import Foundation
 
 struct MajorScalesLogic {
     
-    var scalesIndex : Int = 0
-    
     let scales = [
         MajorScales(scaleNames: "C Major", scaleNotes: "C D E F G A B C"),
         MajorScales(scaleNames: "F Major", scaleNotes: "F G A Bb C D E F"),
@@ -38,20 +36,16 @@ struct MajorScalesLogic {
         MajorScales(scaleNames: "F# Minor", scaleNotes: "F# G# A B C# D E F#"),
     ]
     
-    func getScaleIndex() -> Int {
-        return scalesIndex
+    func getCount() -> Int {
+        return scales.count
     }
     
-    mutating func setScaleIndex(_ index: Int) {
-        scalesIndex = index
+    func getScaleName(_ index: Int) -> String {
+        return scales[index].scaleName
     }
     
-    func getScaleName() -> String {
-        return scales[scalesIndex].scaleName
-    }
-    
-    func getScaleNotes() -> String {
-        return scales[scalesIndex].scaleNotes
+    func getScaleNotes(_ index: Int) -> String {
+        return scales[index].scaleNotes
     }
 }
 

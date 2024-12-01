@@ -19,13 +19,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return majorScalesLogic.scales.count
+        return majorScalesLogic.getCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        content.text = majorScalesLogic.scales[indexPath.row].scaleName
+        content.text = majorScalesLogic.getScaleName(indexPath.row)
         content.secondaryText = "Play"
         cell.contentConfiguration = content
         return cell
@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //set current index to passed to Second View Controller
         index = indexPath.row
-        scaleName = majorScalesLogic.scales[indexPath.row].scaleName
+        scaleName = majorScalesLogic.getScaleName(indexPath.row)
         //perform segue in here
         self.performSegue(withIdentifier: "toSecondView", sender: self)
     }

@@ -19,7 +19,7 @@ class SecondViewController: UIViewController, AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scaleNotesLabel.text = "Scale Notes: \(majorScaleLogic.scales[index].scaleNotes)"
+        scaleNotesLabel.text = "Scale Notes: \(majorScaleLogic.getScaleNotes(index))"
         playMusic()
         // Do any additional setup after loading the view.
     }
